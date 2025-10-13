@@ -1,0 +1,375 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+}
+
+
+:root {
+    --cor-primaria: #ffffff;
+    --cor-border: #e1e7ef;
+    --cor-chat-usuario: #3c83f6;
+    --cor-chat-usuario-hover: #265db6;
+    --cor-texto-primario: #202c3e;
+    --cor-texto-secundario: #919fb6;
+    --cor-background-chat: #ebf4ff;
+    --cor-texto-online: rgb(23, 146, 155);
+}
+
+
+body {
+    background-color: var(--cor-primaria);
+    overflow: hidden;
+}
+
+
+.container {
+    width: 100vw;
+    height: 100dvh;
+    color: var(--cor-texto-primario);
+}
+
+main {
+    margin: auto;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    max-width: 2000px;
+    display: flex;
+    align-items: center;
+}
+
+.conversas {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 100%;
+    border-right: 1px solid var(--cor-border);
+    background-color: var(--cor-primaria);
+}
+
+.titulo {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid var(--cor-border);
+}
+
+.contato {
+    width: 100%;
+    height: 95px;
+    display: flex;
+    border-bottom: 1px solid var(--cor-border);
+}
+
+.foto-contato {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+}
+
+.foto-contato img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100px;
+}
+
+
+.box-contato {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.nome-contato h5 {
+    font-size: 17px;
+}
+
+.menssagem-contato p {
+    font-size: 14px;
+    color: var(--cor-texto-secundario);
+}
+
+
+
+
+
+
+
+
+
+
+.chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--cor-primaria);
+}
+
+
+
+.header-chat {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid var(--cor-border);
+    display: flex;
+}
+
+.foto-contato-chat {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+}
+
+.foto-contato-chat img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100px;
+}
+
+
+.box-contato-chat {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.nome-contato-chat h5 {
+    font-size: 17px;
+}
+
+.online p, .digitando p{
+    font-size: 14px;
+    color: var(--cor-texto-online);
+}
+
+.digitando, #digitando-chat{
+    display: none;
+}
+
+.nome-contato-chat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nome-contato-chat span {
+    background-color: var(--cor-chat-usuario);
+    color: white;
+    padding: 1px 10px 1px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.container-conversa-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column;
+    background-color: var(--cor-background-chat);
+}
+
+.container-menssagem-chat {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px 20px 0px;
+}
+
+.user-content-container{
+    display: flex;
+    justify-content: end;
+}
+
+.chat-menssagem {
+    width: 100px;
+    max-width: 400px;
+    padding: 10px;
+    width: fit-content;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.systema-content{
+    border-radius: 20px 20px 20px 0px;
+    background-color: var(--cor-primaria);
+    border: 1px solid var(--cor-border);
+}
+
+.user-content{
+    border-radius: 20px 20px 0px 20px;
+    background-color: var(--cor-chat-usuario);
+    color: var(--cor-primaria);
+}
+
+.container-input-chat {
+    width: 100%;
+    min-height: 80px;
+    border-top: 1px solid var(--cor-border);
+    display: flex;
+}
+
+
+.container-input-chat button {
+    height: 50px;
+    width: 50px;
+    margin-right: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--cor-chat-usuario);
+    color: var(--cor-primaria);
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.container-input-chat button:hover {
+    background-color: var(--cor-chat-usuario-hover);
+}
+
+
+#chatInput {
+    width: 100%;
+    height: 50px;
+    max-height: 200px;
+    resize: none;
+    overflow-y: auto;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    border: 1px solid var(--cor-border);
+    border-radius: 8px;
+    outline: none;
+    margin: 15px;
+    transition: border-color 0.2s;
+}
+
+#chatInput:focus {
+    border-color: var(--cor-texto-secundario);
+}
+
+#chatInput::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatInput::-webkit-scrollbar-track {
+    background: var(--cor-primaria);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+#chatInput::-webkit-scrollbar-thumb {
+    background-color: var(--cor-texto-primario);
+    border-radius: 4px;
+    border: 2px solid var(--cor-primaria);
+}
+
+#chatInput::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cor-chat-usuario);
+}
+
+
+
+
+
+
+
+
+
+.digitando-p {
+  display: flex;
+  gap: 5px; /* espaço entre os pontos */
+  align-items: center;
+  height: 20px; /* ajusta se quiser */
+}
+
+.digitando-p span {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cor-chat-usuario);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulso 1s infinite;
+}
+
+/* Delay diferente para cada ponto */
+.digitando-p span:nth-child(1) { animation-delay: 0s; }
+.digitando-p span:nth-child(2) { animation-delay: 0.2s; }
+.digitando-p span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulso {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 1000px){
+    main{
+        align-items: start;
+    }
+
+    .conversas{
+        display: none;
+    }
+
+    .container-conversa-chat{
+        padding-bottom: 85px;
+    }
+
+    .container-input-chat{
+        z-index: 100;
+        position: fixed;
+        bottom: 0px;
+        background-color: var(--cor-primaria);
+    }
+
+    .chat{
+        height: calc(100vh - 80px);
+    }
+}
+
+@media(max-width: 475px){
+    .chat-menssagem {
+        max-width: 300px;
+    }
+}
