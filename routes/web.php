@@ -7,4 +7,4 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('/chat', [MainController::class, 'chat'])->name('chat');
-Route::post('/api//chat/send', [ChatController::class, 'sendMessage']);
+Route::post('/api/chat/send', [ChatController::class, 'sendMessage']);
