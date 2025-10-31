@@ -1,72 +1,17 @@
 const textarea = document.getElementById("chatInput");
 
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarBoasVindas();
-});
-
-
-async function mostrarBoasVindas() {
-  const chatBox = document.querySelector(".container-conversa-chat");
-  const typingChat = document.querySelector("#digitando-chat");
-  const typing = document.querySelector(".digitando");
-  const online = document.querySelector(".online");
-
-  // Mostra o "digitando" e garante que fique no final
-  online.style.display = "none";
-  chatBox.appendChild(typingChat);
-  typingChat.style.display = "block";
-  typing.style.display = "block";
-
-  // Simula o tempo de digitação do bot (1,5 segundos por exemplo)
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
-  // Esconde o "digitando"
-  typingChat.style.display = "none";
-  typing.style.display = "none";
-  online.style.display = "block";
-
-  // Cria a mensagem de boas-vindas
-  const container = document.createElement("div");
-  container.className = "container-menssagem-chat";
-
-  const chatMensagem = document.createElement("div");
-  chatMensagem.className = "chat-menssagem systema-content";
-
-  const mensagemContent = document.createElement("div");
-  mensagemContent.className = "menssagem-content";
-
-  const p = document.createElement("p");
-  p.textContent = "Olá, como posso ajudá-lo?";
-
-  // Montando a estrutura
-  mensagemContent.appendChild(p);
-  chatMensagem.appendChild(mensagemContent);
-  container.appendChild(chatMensagem);
-
-  // Adicionando no chatBox e scroll suave
-  chatBox.appendChild(container);
-  chatBox.scrollTo({
-    top: chatBox.scrollHeight,
-    behavior: "smooth"
-  });
-}
-
-
-
-
-
-
-
-
-
 
 
 async function sendApiIA() {
-  const message = document.getElementById("chatInput").value;
+  const message = document.getElementById("chatInput").value.trim();
   const chatBox = document.querySelector(".container-conversa-chat");
   const typing = document.querySelector(".digitando");
   const typingChat = document.querySelector("#digitando-chat");
   const online = document.querySelector(".online");
+
+  if(message === ""){
+    return
+  }
 
   // Mostra que está digitando
   online.style.display = "none"
@@ -113,6 +58,7 @@ async function sendApiIA() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     },
     body: JSON.stringify({ message }),
   });
